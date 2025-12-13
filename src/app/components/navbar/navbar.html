@@ -1,0 +1,19 @@
+<nav class="bg-gray-200 items-center  rounded-b-md fixed z-50 left-5 right-5 top-0 ">
+  <div class="grid grid-cols-3 mt-5 bg-cyan-700 shadow h-12 px-3 py-3 rounded-md items-center text-white ">
+
+    <div class="">
+      <div>
+        <img src="" alt="logo">
+      </div>
+    </div>
+    <div class=" justify-around flex">
+
+      @for (item of secciones; track $index) {
+      <a class="" [routerLink]="item.path">{{item.titulo}}</a>
+      }
+    </div>
+    <div class="flex justify-end">
+      <button>Iniciar sesión</button>
+    </div>
+  </div>
+</nav>

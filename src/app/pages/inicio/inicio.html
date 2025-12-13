@@ -1,0 +1,11 @@
+<section class="seccion-init space-y-5">
+  <div class="bg-[url('/task.webp')] bg-cover bg-center min-h-[535px] rounded-md ">
+  </div>
+  <div class="flex gap-5 rounded-md">
+    @for (item of cards; track $index) {
+      <app-card [data]="item"></app-card>
+    }
+  </div>
+
+
+</section>

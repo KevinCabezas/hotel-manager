@@ -1,0 +1,19 @@
+<div class="bg-white flex rounded-md">
+  <swiper-container class="w-1/2 h-64" slides-per-view="1" navigation="true" pagination="true"
+    loop="false">
+    @for (img of data.imagenes; track $index) {
+    <swiper-slide>
+      <img [src]="img" class="w-full h-64 object-cover rounded-l-md" />
+    </swiper-slide>
+    }
+  </swiper-container>
+
+  <div class="flex flex-col p-3">
+    <h2>{{data.titulo}}</h2>
+    <p>{{data.descripcion}}</p>
+    <span>{{data.precio}}</span>
+    <span>{{data.cantidad}}</span>
+    <button  class="border-2 py-1 px-2 rounded-md border-cyan-700">Reservar</button>
+  </div>
+
+</div>

@@ -1,0 +1,7 @@
+.fondo-portada {
+  background-image: url('/portada.webp');
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  width: 100%;
+}

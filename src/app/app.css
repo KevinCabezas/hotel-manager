@@ -1,0 +1,5 @@
+@reference "tailwindcss";
+
+h1 {
+  @apply bg-amber-200
+}

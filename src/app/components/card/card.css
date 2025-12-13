@@ -1,0 +1,13 @@
+@reference "tailwindcss";
+
+
+.btn-card {
+  @apply 
+  bg-cyan-700 
+  px-2 
+  py-1 
+  rounded-md 
+  text-white 
+  cursor-pointer
+  hover:bg-cyan-400 
+}

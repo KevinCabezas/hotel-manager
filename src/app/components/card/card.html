@@ -1,0 +1,15 @@
+
+<div class="bg-white rounded-md shadow-2xl">
+  <div class="p-3">
+    <h2 class="text-xl">{{data.titulo}}</h2>
+  </div>
+  <div >
+    <img [src]="data.imagen" alt="" class="object-cover">
+  </div>
+  <div class="p-3 flex justify-end ">
+    <button 
+      class="btn-card"
+      [routerLink]="data.path"
+      >{{data.boton}}</button>
+  </div>
+</div>
