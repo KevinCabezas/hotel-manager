@@ -13,7 +13,10 @@
     <p>{{data.descripcion}}</p>
     <span>{{data.precio}}</span>
     <span>{{data.cantidad}}</span>
-    <button (click)="modalService.show()" class="border-2 py-1 px-2 rounded-md border-cyan-700">Reservar</button>
+    <div class="space-x-5">
+      <button (click)="modalService.show()" class="border-2 py-1 px-2 rounded-md border-cyan-700">Disponibilidad</button>
+      <button (click)="modalService.show()" class="border-2 py-1 px-2 rounded-md border-cyan-700">Reservar</button>
+    </div>
   </div>
 
 </div>

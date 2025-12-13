@@ -1,28 +1,40 @@
-<section class="bg-black/70 fixed inset-0 z-50 flex justify-center items-center transition-opacity duration-300">
+<section class="bg-black/70 fixed inset-0 z-50 flex justify-center items-center transition-opacity duration-300 py-20 px-40">
 
-  <div class="bg-white flex flex-col items-center justify-center rounded-md shadow-xl w-1/2 h-3/4">
+  <div class="bg-white grid grid-cols-2 h-full rounded-md shadow-xl ">
 
-    <h1>jaja</h1>
-    <form [formGroup]="formulario" (ngSubmit)="enviarFormulario()"
-      class="flex flex-col gap-5"
-    >
-      <div class="flex flex-col">
-        <label for="fecha">Fecha de reserva</label>
-        <input type="date" id="fecha" formControlName="fecha" class="style-input"/>
-        @if (f['fecha'].errors?.['required'] && (f['fecha'].touched || submitted)) {
-          <small class="text-red-600">Seleccione la fecha</small>
-        }
+    <!-- <div class="grid grid-cols-2 "> -->
+      
+      <div class="flex rounded-l-md h-full">
+        <img src="habitacion.webp" alt="" class="object-cover h-full">
       </div>
-      <div class="flex flex-col">
-        <label for="noches">Noches</label>
-        <input type="number" id="noches" formControlName="noches" class="style-input" />
-        @if (f['noches'].errors?.['required'] && (f['noches'].touched || submitted)) {
-        <small class="text-red-600">Ingrese la cantidad de noches</small>
-        }
-      </div>
-      <button type="submit" class="bg-amber-500 text-white font-semibold py-1 px-2 rounded-md">Confirmar Reserva</button>
-      <button type="button" (click)="modalService.close()"
-      class="bg-amber-500 text-white font-semibold py-1 px-2 rounded-md">Cancelar</button>
-    </form>
+      <form [formGroup]="formulario" (ngSubmit)="enviarFormulario()" class="flex flex-col">
+        <div class=" w-full flex justify-center py-2 rounded-t-md items-center border-amber-500 border-b">
+          <h1 class="">Reservación</h1>
+        </div>
+        <div class="flex flex-col justify-between h-full p-5">
+
+          <div class="flex flex-col">
+            <label for="fecha">Fecha de reserva</label>
+            <input type="date" id="fecha" formControlName="fecha" class="style-input" />
+            @if (f['fecha'].errors?.['required'] && (f['fecha'].touched || submitted)) {
+              <small class="text-red-600">Seleccione la fecha</small>
+            }
+          </div>
+          <div class="flex flex-col">
+            <label for="noches">Noches</label>
+            <input type="number" id="noches" formControlName="noches" class="style-input" />
+            @if (f['noches'].errors?.['required'] && (f['noches'].touched || submitted)) {
+              <small class="text-red-600">Ingrese la cantidad de noches</small>
+            }
+          </div>
+          <div class="flex w-full gap-5">
+            <button type="button" (click)="modalService.close()"
+            class="bg-amber-500 text-white font-semibold w-1/2 py-1 px-2 rounded-md">Cancelar</button>
+            <button type="submit" class="bg-cyan-800 w-1/2 text-white font-semibold py-1 px-2 rounded-md">Confirmar</button>
+          </div>
+        </div>
+      </form>
+    <!-- </div> -->
+    <!-- <div class="h-8 items-center rounded-b-md flex justify-center w-full "></div> -->
   </div>
 </section>
