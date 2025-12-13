@@ -1,0 +1,9 @@
+@reference "tailwindcss";
+
+.style-input {
+  @apply focus:outline-none bg-gray-200/80
+}
+
+button {
+  @apply cursor-pointer
+}

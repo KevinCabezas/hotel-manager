@@ -1,5 +1,6 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, Input,  } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, inject, Input,  } from '@angular/core';
 import { IHabitacion } from '../../interfaces/habitaciones';
+import { ModalReservaService } from '../../services/components/modal-reserva-service';
 
 @Component({
   selector: 'app-card-habitacion',
@@ -11,5 +12,6 @@ import { IHabitacion } from '../../interfaces/habitaciones';
 })
 export class CardHabitacion {
 
+  public modalService = inject(ModalReservaService);
   @Input() data!: IHabitacion;
 }
