@@ -1,10 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { ModalReservaService } from '../../services/components/modal-reserva-service';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-modal-reservar',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './modal-reservar.html',
   styleUrl: './modal-reservar.css',
 })

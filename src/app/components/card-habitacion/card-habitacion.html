@@ -1,9 +1,10 @@
-<div class="bg-white flex rounded-md">
-  <swiper-container class="w-1/2 h-64" slides-per-view="1" navigation="true" pagination="true"
+<div class="bg-white grid grid-cols-1 lg:grid-cols-2 rounded-md">
+  <swiper-container class="w-full lg:h-64" slides-per-view="1" navigation="true" pagination="true"
     loop="false">
     @for (img of data.imagenes; track $index) {
     <swiper-slide>
-      <img [src]="img" class="w-full h-64 object-cover rounded-l-md" />
+      <img [src]="img" class="w-full lg:h-64 object-cover rounded-t-md
+      lg:rounded-t-md lg:rounded-bl-md lg:rounded-tr-none" />
     </swiper-slide>
     }
   </swiper-container>
@@ -13,9 +14,9 @@
     <p>{{data.descripcion}}</p>
     <span>{{data.precio}}</span>
     <span>{{data.cantidad}}</span>
-    <div class="space-x-5">
-      <button (click)="modalService.show()" class="border-2 py-1 px-2 rounded-md border-cyan-700">Disponibilidad</button>
-      <button (click)="modalService.show()" class="border-2 py-1 px-2 rounded-md border-cyan-700">Reservar</button>
+    <div class="grid lg:grid-cols-2 gap-2">
+      <button (click)="modalService.show()" class="border-2 py- px-2 rounded-md border-cyan-700">Disponibilidad</button>
+      <button (click)="modalService.show()" class="border-2 py- px-2 rounded-md border-cyan-700">Reservar</button>
     </div>
   </div>
 

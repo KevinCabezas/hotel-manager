@@ -1,0 +1,16 @@
+@reference "tailwindcss";
+
+
+.group {
+  @apply
+  flex flex-col
+}
+
+input {
+  @apply 
+  focus:outline-none
+  px-2
+  py-1
+  bg-gray-200 
+  rounded-md
+} 

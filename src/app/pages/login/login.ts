@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { ModalReservar } from "../../components/modal-reservar/modal-reservar";
 
 @Component({
   selector: 'app-login',
-  imports: [ModalReservar],
+  imports: [],
   templateUrl: './login.html',
   styleUrl: './login.css',
 })

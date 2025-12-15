@@ -16,6 +16,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/login/login').then((a) => a.Login)
   },
   {
+    path: 'registro',
+    loadComponent: () => import('./pages/registro/registro').then((a) => a.Registro)
+  },
+  {
     path: 'reservas',
     loadComponent: () => import('./pages/reservas/reservas').then((a) =>a.Reservas)
   },

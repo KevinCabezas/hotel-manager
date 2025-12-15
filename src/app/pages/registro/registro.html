@@ -1,0 +1,61 @@
+<section class="fixed inset-0 z-50 bg-black/80 flex justify-center items-center">
+
+  <div class="bg-white p-5 rounded-md">
+    <h1 class="text-2xl">Registro</h1>
+    <form [formGroup]="formulario" (ngSubmit)="enviarFormulario()" class="space-y-5">
+      <div class="group">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" formControlName="nombre" class="">
+        @if (f['nombre'].errors?.['required'] && (f['nombre'].touched || submitted)) {
+        <small class="text-red-500">Ingrese su nombre</small>
+        }
+        @if(f['nombre'].errors?.['minlength'] && (f['nombre'].touched || submitted)) {
+        <small class="text-red-600">Mínimo {{ f['nombre'].errors?.['minlength'].requiredLength }} caracteres</small>
+        }
+      </div>
+      <div class="group">
+        <label for="apellido">Apellido</label>
+        <input type="text" id="apellido" formControlName="apellido">
+        @if (f['apellido'].errors?.['required'] && (f['apellido'].touched || submitted)) {
+        <small class="text-red-500">Ingrese su apellido</small>
+        }
+      </div>
+      <div class="group">
+        <label for="mail">mail</label>
+        <input type="email" id="mail" formControlName="mail" />
+        @if(f['mail'].errors?.['required'] && (f['mail'].touched || submitted)) {
+        <small class="text-red-600">El mail es requerido</small>
+        }
+        @if(f['mail'].errors?.['email'] && (f['mail'].touched || submitted)) {
+        <small class="text-red-600">Formato de mail inválido</small>
+        }
+        @if(f['mail'].errors?.['existe']) {
+        <small class="text-red-600">El correo ya existe</small>
+        }
+      </div>
+      <div class="group">
+        <label for="contrasena">Contraseña</label>
+        <input type="password" name="" id="contrasena" formControlName="contrasena">
+        @if (f['contrasena'].errors?.['required'] && (f['contrasena'].touched || submitted)) {
+        <small class="text-red-500">Ingrese una contraseña</small>
+
+        }
+        @if(f['contrasena'].errors?.['minlength'] && (f['contrasena'].touched || submitted)) {
+        <small class="text-red-600">Mínimo 8 caracteres</small>
+        }
+      </div>
+      <div class="group">
+        <label for="repetir">Repetir contraseña</label>
+        <input type="password" id="repetir" formControlName="repetir">
+        @if (f['repetir'].errors?.['required'] && (f['repetir'].touched || submitted)) {
+        <small class="text-red-500">Repita contaseña</small>
+        }
+        @if(f['repetir'].errors?.['iguales'] && (f['repetir'].touched || submitted)) {
+        <small class="text-red-600">Las contraseñas no coinciden</small>
+        }
+      </div>
+      <button type="submit" class="bg-cyan-700 text-white px-2 py-1 rounded-md">Registrarse
+      </button>
+    </form>
+  </div>
+</section>

@@ -1,15 +1,20 @@
-<section class="bg-black/70 fixed inset-0 z-50 flex justify-center items-center transition-opacity duration-300 py-20 px-40">
+<section class="bg-black/70 fixed inset-0 z-50 flex justify-center items-center transition-opacity duration-300 py-20 px-5 lg:px-20">
 
-  <div class="bg-white grid grid-cols-2 h-full rounded-md shadow-xl ">
+  <div class="bg-white grid lg:grid-cols-2 h-full rounded-md shadow-xl ">
 
     <!-- <div class="grid grid-cols-2 "> -->
       
-      <div class="flex rounded-l-md h-full">
-        <img src="habitacion.webp" alt="" class="object-cover h-full">
+      <div class="flex  h-full">
+        <img src="habitacion.webp" alt="" class="object-cover h-full rounded-t-md
+      lg:rounded-t-md lg:rounded-bl-md lg:rounded-tr-none">
       </div>
       <form [formGroup]="formulario" (ngSubmit)="enviarFormulario()" class="flex flex-col">
-        <div class=" w-full flex justify-center py-2 rounded-t-md items-center border-amber-500 border-b">
-          <h1 class="">Reservación</h1>
+        <div class=" w-full flex justify-between py-2 px-5 rounded-t-md  border-amber-500 border-b">
+          <h1 class="flex justify-center items-center ">Reservación</h1>
+          <a 
+          routerLink="/reservas"
+          class="flex justify-center items-center lg:items-end h-full font-light underline hover:text-cyan-700 cursor-pointer">Más info</a>
+          <!-- <a class="flex text-end justify-center bg-amber-300" >Más info</a> -->
         </div>
         <div class="flex flex-col justify-between h-full p-5">
 
