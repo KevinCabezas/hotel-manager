@@ -9,18 +9,18 @@ export class DataBase {
   private spbService = inject(Supabase);
 
 
-  async crearUsuario(usuario: IUsuario): Promise<any | null> {
+  async crearUsuario(usuario: IUsuario): Promise<IUsuario> {
     const { data, error } = await this.spbService.client
       .from('usuarios')
       .insert(usuario)
       .select();
 
     if (error) {
-      console.log('Error al guardar usuario:', error.message);
-      return null;
+      console.log('Error Supabase:', error.message);
+      throw error;
     }
-    console.log(data)
-    return data?.[0] || null
+    // console.log(data)
+    return data[0];
   }
-  
+
 }

@@ -1,8 +1,14 @@
 export interface IUsuario {
   nombre: string;
-  apellido?: string;
+  apellido: string;
+  email: string;
+  rol:string;
+ 
+}
+
+export interface IUsuarioAuth {
+  nombre: string;
   email: string;
   contrasena: string;
-  // telefono?: number;
-
+  rol: string;
 }

@@ -22,14 +22,14 @@
       </div>
       <div class="group">
         <label for="mail">mail</label>
-        <input type="email" id="mail" formControlName="mail" />
-        @if(f['mail'].errors?.['required'] && (f['mail'].touched || submitted)) {
+        <input type="email" id="email" formControlName="email" />
+        @if(f['email'].errors?.['required'] && (f['email'].touched || submitted)) {
         <small class="text-red-600">El mail es requerido</small>
         }
-        @if(f['mail'].errors?.['email'] && (f['mail'].touched || submitted)) {
+        @if(f['email'].errors?.['eemail'] && (f['email'].touched || submitted)) {
         <small class="text-red-600">Formato de mail inválido</small>
         }
-        @if(f['mail'].errors?.['existe']) {
+        @if(f['email'].errors?.['existe']) {
         <small class="text-red-600">El correo ya existe</small>
         }
       </div>
@@ -41,7 +41,7 @@
 
         }
         @if(f['contrasena'].errors?.['minlength'] && (f['contrasena'].touched || submitted)) {
-        <small class="text-red-600">Mínimo 8 caracteres</small>
+        <small class="text-red-500">Mínimo 8 caracteres</small>
         }
       </div>
       <div class="group">
@@ -50,8 +50,8 @@
         @if (f['repetir'].errors?.['required'] && (f['repetir'].touched || submitted)) {
         <small class="text-red-500">Repita contaseña</small>
         }
-        @if(f['repetir'].errors?.['iguales'] && (f['repetir'].touched || submitted)) {
-        <small class="text-red-600">Las contraseñas no coinciden</small>
+        @if(formulario.errors?.['iguales'] && (f['repetir'].touched || submitted)) {
+        <small class="text-red-500">Las contraseñas no coinciden</small>
         }
       </div>
       <button type="submit" class="bg-cyan-700 text-white px-2 py-1 rounded-md">Registrarse

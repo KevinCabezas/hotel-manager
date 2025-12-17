@@ -1,15 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, Validators, } from '@angular/forms';
+import { ErrorInput } from "../../components/error-input/error-input";
+import { IUsuario, IUsuarioAuth } from '../../interfaces/usuario';
+import { AuthService } from '../../services/auth-service';
+import { DataBase } from '../../services/data-base';
 
 @Component({
   selector: 'app-regitro',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,],
   templateUrl: './registro.html',
   styleUrl: './registro.css',
 })
 export class Registro {
 
-  formulario = new FormGroup( 
+  formulario = new FormGroup(
     {
       nombre: new FormControl<string>('', {
         nonNullable: true, validators: [
@@ -18,7 +22,7 @@ export class Registro {
           Validators.maxLength(20)
         ]
       }),
-      apellido: new FormControl<string>('',{
+      apellido: new FormControl<string>('', {
         nonNullable: true, validators: [
           Validators.required,
           Validators.minLength(3),
@@ -26,7 +30,7 @@ export class Registro {
         ]
       }),
 
-      mail: new FormControl<string>('',{
+      email: new FormControl<string>('', {
         nonNullable: true, validators: [
           Validators.required,
           Validators.email
@@ -45,11 +49,14 @@ export class Registro {
         ]
       })
 
-    }
-
+    },
+    { validators: this.validarContrasenias }
   )
 
   protected submitted = false;
+  private authService = inject(AuthService);
+  private dbService = inject(DataBase);
+
   get f() {
     return this.formulario.controls;
   }
@@ -61,11 +68,48 @@ export class Registro {
       console.log('form invalido')
       return;
     }
-    console.log(this.formulario)
+    console.log(this.formulario.value)
+    this.registrarUsuarioAuth();
+      // this.crearUsuario();
 
   }
 
-   validarContrasenias(group: AbstractControl): ValidationErrors | null {
+  async registrarUsuarioAuth() {
+
+    const usuarioAuth: IUsuarioAuth = {
+      nombre: this.formulario.get('nombre')!.value,
+      email: this.formulario.get('email')!.value,
+      contrasena: this.formulario.get('contrasena')!.value,
+      rol: 'usuario'
+    }
+    try {
+      const response = await this.authService.crearCuenta(usuarioAuth);
+      console.log(response);
+      this.crearUsuario();
+
+    } catch (error) {
+      console.error('Error al crear usuario auth:', error);
+    }
+  }
+
+  async crearUsuario() {
+    const usuario: IUsuario = {
+      nombre: this.formulario.get('nombre')!.value,
+      apellido: this.formulario.get('apellido')!.value,
+      email: this.formulario.get('email')!.value,
+      rol: 'usuario'
+    }
+
+    try {
+      const response = await this.dbService.crearUsuario(usuario);
+      console.log(response);
+
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  validarContrasenias(group: AbstractControl): ValidationErrors | null {
     const contrasenia = group.get('contrasena')?.value;
     const repetir = group.get('repetir')?.value;
 
