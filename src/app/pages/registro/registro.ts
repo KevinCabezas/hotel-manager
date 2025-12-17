@@ -1,15 +1,17 @@
-import { Component, inject } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, inject } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, Validators, } from '@angular/forms';
 import { ErrorInput } from "../../components/error-input/error-input";
 import { IUsuario, IUsuarioAuth } from '../../interfaces/usuario';
 import { AuthService } from '../../services/auth-service';
 import { DataBase } from '../../services/data-base';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-regitro',
-  imports: [ReactiveFormsModule,],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './registro.html',
   styleUrl: './registro.css',
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class Registro {
 

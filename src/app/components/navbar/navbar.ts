@@ -10,8 +10,8 @@ import { RouterLink } from "@angular/router";
 export class Navbar {
   protected secciones = [
     {titulo: 'Inicio', path: '/inicio', icono: ''},
-    {titulo: 'Reservas', path: '/reservas', icono: ''},
-    {titulo: 'Habitaciónes', path: '/habitaciones', icono: 'habitaciones'},
-    {titulo: 'Contacto', path: '/login', icono: ''},
+    // {titulo: 'Reservas', path: '/reservas', icono: ''},
+    // {titulo: 'Habitaciónes', path: '/habitaciones', icono: 'habitaciones'},
+    // {titulo: 'Contacto', path: '/login', icono: ''},
   ]
 }

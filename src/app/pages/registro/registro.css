@@ -1,16 +1,27 @@
 @reference "tailwindcss";
 
-
+.group-daddy {
+  @apply
+  grid grid-cols-1 lg:grid-cols-2 lg:gap-10 gap-5
+}
 .group {
   @apply
   flex flex-col
 }
 
+label {
+  @apply
+  text-[11px]
+  text-gray-500
+}
+
+
 input {
   @apply 
   focus:outline-none
-  px-2
   py-1
-  bg-gray-200 
-  rounded-md
+  border-gray-500
+  border-b
+  text-lg
+  font-semibold
 } 
