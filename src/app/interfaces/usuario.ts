@@ -1,6 +1,5 @@
 export interface IUsuario {
   nombre: string;
-  apellido: string;
   email: string;
   rol:string;
  

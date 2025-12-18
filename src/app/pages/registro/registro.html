@@ -2,10 +2,11 @@
 
   <div class="bg-white px-10 lg:px-15 py-10 rounded-md">
     <h1 class="text-2xl pb-5">Registro</h1>
-    <button
+    <button 
+      type="button"
+      (click)="registroConGoogle()"
       class="bg-gray-300 flex py-2 w-full items-center justify-center rounded-md hover:bg-gray-400 transition-all duration-300">
       <iconify-icon icon="flat-color-icons:google" class="text-2xl"></iconify-icon>
-      <!-- <iconify-icon icon="devicon-plain:google-wordmark" class="text-3xl"></iconify-icon> -->
     </button>
     <div class="flex items-center gap-3 py-2">
       <div class="flex-1 border-t"></div>
@@ -24,13 +25,6 @@
         @if(f['nombre'].errors?.['minlength'] && (f['nombre'].touched || submitted)) {
         <small class="text-red-600">Mínimo {{ f['nombre'].errors?.['minlength'].requiredLength }} caracteres</small>
         }
-        <!-- <div class="group">
-          <label for="apellido">APELLIDO</label>
-          <input type="text" id="apellido" formControlName="apellido">
-          @if (f['apellido'].errors?.['required'] && (f['apellido'].touched || submitted)) {
-          <small class="text-red-500">Ingrese su apellido</small>
-          }
-        </div> -->
       </div>
 
       <div class="group">

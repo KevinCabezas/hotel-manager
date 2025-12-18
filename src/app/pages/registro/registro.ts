@@ -5,6 +5,7 @@ import { IUsuario, IUsuarioAuth } from '../../interfaces/usuario';
 import { AuthService } from '../../services/auth-service';
 import { DataBase } from '../../services/data-base';
 import { RouterLink } from "@angular/router";
+import { Supabase } from '../../services/supabase';
 
 @Component({
   selector: 'app-regitro',
@@ -18,13 +19,6 @@ export class Registro {
   formulario = new FormGroup(
     {
       nombre: new FormControl<string>('', {
-        nonNullable: true, validators: [
-          Validators.required,
-          Validators.minLength(3),
-          Validators.maxLength(20)
-        ]
-      }),
-      apellido: new FormControl<string>('', {
         nonNullable: true, validators: [
           Validators.required,
           Validators.minLength(3),
@@ -57,13 +51,20 @@ export class Registro {
 
   protected submitted = false;
   private authService = inject(AuthService);
+  // private spbService = inject(Supabase);
   private dbService = inject(DataBase);
 
   get f() {
     return this.formulario.controls;
   }
 
-  enviarFormulario() {
+ 
+  protected registroConGoogle() {
+    this.authService.registroConGoogle();
+    
+  }
+
+  protected enviarFormulario() {
     this.submitted = true;
     if (this.formulario.invalid) {
       this.formulario.markAllAsTouched();
@@ -72,11 +73,11 @@ export class Registro {
     }
     console.log(this.formulario.value)
     this.registrarUsuarioAuth();
-      // this.crearUsuario();
+    // this.crearUsuario();
 
   }
 
-  async registrarUsuarioAuth() {
+  private async registrarUsuarioAuth() {
 
     const usuarioAuth: IUsuarioAuth = {
       nombre: this.formulario.get('nombre')!.value,
@@ -94,10 +95,10 @@ export class Registro {
     }
   }
 
-  async crearUsuario() {
+  private async crearUsuario() {
     const usuario: IUsuario = {
       nombre: this.formulario.get('nombre')!.value,
-      apellido: this.formulario.get('apellido')!.value,
+      // apellido: this.formulario.get('apellido')!.value,
       email: this.formulario.get('email')!.value,
       rol: 'usuario'
     }
@@ -111,7 +112,7 @@ export class Registro {
     }
   }
 
-  validarContrasenias(group: AbstractControl): ValidationErrors | null {
+  private validarContrasenias(group: AbstractControl): ValidationErrors | null {
     const contrasenia = group.get('contrasena')?.value;
     const repetir = group.get('repetir')?.value;
 

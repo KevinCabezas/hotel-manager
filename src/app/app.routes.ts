@@ -20,6 +20,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/registro/registro').then((a) => a.Registro)
   },
   {
+    path: 'auth-google',
+    loadComponent: () => import('./components/auth-callback/auth-callback').then((a) => a.AuthCallback)
+  },
+  {
     path: 'reservas',
     loadComponent: () => import('./pages/reservas/reservas').then((a) =>a.Reservas)
   },
